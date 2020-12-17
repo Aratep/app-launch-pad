@@ -1,0 +1,16 @@
+.screenshot-builder-page {
+  display: flex;
+  flex-direction: row;
+
+  .sidebar {
+    width: 30%;
+  }
+
+  .result-block {
+    width: 70%;
+  }
+
+  .sidebar, .result-block {
+    padding: 1rem;
+  }
+}
