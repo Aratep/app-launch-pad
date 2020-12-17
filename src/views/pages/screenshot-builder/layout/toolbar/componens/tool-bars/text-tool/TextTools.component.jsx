@@ -1,14 +1,39 @@
 import React from "react";
+import { connect } from "react-redux";
 
 //COMPONENTS
 import TextArea from "components/text-area/TextArea.component";
+//ACTIONS
+import { setToolbarParam } from "redux/toolbar/toolbra.actions";
+import { createStructuredSelector } from "reselect";
 
-const TextTools = () => {
+const TextTools = (props) => {
+   const { setToolbarParam, toolbar } = props;
+
+   const onChange = (e) => {
+      const { name, value } = e?.target;
+      setToolbarParam(name, value);
+   };
+
    return (
       <div className="text-tool">
-         <TextArea rows={4} />
+         <TextArea
+            onChange={onChange}
+            name="text"
+            value={toolbar?.text}
+            rows={4}
+         />
       </div>
    );
 };
 
-export default TextTools;
+const structuredSelector = createStructuredSelector({
+   toolbar: (state) => state.toolbar,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+   setToolbarParam: (property, value) =>
+      dispatch(setToolbarParam(property, value)),
+});
+
+export default connect(structuredSelector, mapDispatchToProps)(TextTools);

@@ -1,0 +1,17 @@
+.results-block {
+  width: 75%;
+
+  &__devices {
+    display: flex;
+    justify-content: space-around;
+    height: 100%;
+    width: 100%;
+    background-color: whitesmoke;
+
+     div {
+      height: 450px;
+      width: 300px;
+       background-color: #d5d5d5;
+    }
+  }
+}

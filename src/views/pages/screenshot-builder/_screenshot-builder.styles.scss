@@ -1,0 +1,21 @@
+@import "./layout/result-block/result-block.styles";
+
+.screenshot-builder-page {
+  display: flex;
+  flex-direction: row;
+
+  .toolbar {
+    width: 25%;
+    border-right: 1px solid grey;
+    background-color: #f8f9fa;
+  }
+
+  .result-block {
+    width: 75%;
+    background-color: red;
+  }
+
+  .toolbar, .result-block {
+    padding: 1rem;
+  }
+}

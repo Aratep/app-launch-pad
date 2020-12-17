@@ -8,7 +8,7 @@ import screenShotIcon from "assets/images/icons/reader-icon.svg";
 import TextTool from "./componens/tool-bars/text-tool/TextTools.component";
 import ScreenshotTool from "./componens/tool-bars/screenshot-tool/ScreenshotTool.component";
 
-export const sidebarItems = [
+export const toolbarItems = [
    {
       uid: Math.floor(100000 + Math.random() * 900000),
       tab: "Text",

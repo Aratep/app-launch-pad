@@ -2,15 +2,15 @@ import React from "react";
 
 //COMPONENTS
 import { ReTab } from "components/tabs/Tabs.component";
-import { sidebarItems } from "./sidebar-items";
+import { toolbarItems } from "./toolbar-items";
 
 const Sidebar = () => {
    return (
-      <aside className="sidebar">
+      <aside className="toolbar">
          <ReTab
             selected={0}
             ariaLabel="Vertical Tabs"
-            contentDefinition={sidebarItems}
+            contentDefinition={toolbarItems}
          />
       </aside>
    );
