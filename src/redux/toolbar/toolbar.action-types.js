@@ -1,3 +1,4 @@
 export const ToolbarTypes = {
    SET_TOOLBAR_PARAM: "SET_TOOLBAR_PARAM",
+   SET_SELECTED_SCREEN: "SET_SELECTED_SCREEN",
 };

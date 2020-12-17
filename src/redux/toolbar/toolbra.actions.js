@@ -6,3 +6,9 @@ export const setToolbarParam = (property, value) => ({
    property,
    value,
 });
+
+//SET SELECTED SCREEN
+export const setSelectedScreen = (selectedScreen) => ({
+   type: ToolbarTypes.SET_SELECTED_SCREEN,
+   payload: selectedScreen,
+});

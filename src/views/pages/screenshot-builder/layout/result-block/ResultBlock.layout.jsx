@@ -4,24 +4,28 @@ import { createStructuredSelector } from "reselect";
 
 //UTILITIES
 import { newlineText } from "utilities/helperFunctions";
+//ACTIONS
+import { setSelectedScreen } from "redux/toolbar/toolbra.actions";
 
 const ResultBlock = (props) => {
-   const { toolbar } = props;
+   const { toolbar, setSelectedScreen } = props;
 
-   const devicesArray = [
-      { id: 1, text: "", image: "" },
-      { id: 2, text: "", image: "" },
-      { id: 3, text: "", image: "" },
-   ];
+   const onScreenSelect = (uid) => {
+      const selectedScreen = toolbar?.devicesArray.filter(
+         (item) => item.uid === uid
+      );
+      setSelectedScreen(selectedScreen[0]);
+   };
 
    return (
       <section className="results-block">
          <div className="results-block__devices">
-            {devicesArray.map((item, index) => (
-               <div className="device" key={item.id}>
-                  <h3 className="device__heading">
-                     {newlineText(toolbar?.text)}
-                  </h3>
+            {toolbar?.devicesArray.map((item, index) => (
+               <div
+                  className="device"
+                  onClick={() => onScreenSelect(item.uid)}
+                  key={item.uid}>
+                  <h3 className="device__heading">{newlineText(item.text)}</h3>
                </div>
             ))}
          </div>
@@ -33,4 +37,9 @@ const structuredSelector = createStructuredSelector({
    toolbar: (state) => state.toolbar,
 });
 
-export default connect(structuredSelector)(ResultBlock);
+const mapDispatchToProps = (dispatch) => ({
+   setSelectedScreen: (selectedScreen) =>
+      dispatch(setSelectedScreen(selectedScreen)),
+});
+
+export default connect(structuredSelector, mapDispatchToProps)(ResultBlock);

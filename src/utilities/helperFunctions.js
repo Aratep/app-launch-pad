@@ -7,3 +7,7 @@ export function newlineText(text) {
       </p>
    ));
 }
+
+export function generateUID() {
+   return Math.floor(100000 + Math.random() * 900000);
+}

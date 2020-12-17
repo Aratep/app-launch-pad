@@ -9,6 +9,7 @@ import { setToolbarParam } from "redux/toolbar/toolbra.actions";
 
 const TextTools = (props) => {
    const { setToolbarParam, toolbar } = props;
+   const { selectedScreen } = toolbar;
 
    const onChange = (e) => {
       const { name, value } = e?.target;
@@ -20,7 +21,7 @@ const TextTools = (props) => {
          <TextArea
             onChange={onChange}
             name="text"
-            value={toolbar?.text}
+            value={selectedScreen?.text}
             rows={4}
          />
       </div>
