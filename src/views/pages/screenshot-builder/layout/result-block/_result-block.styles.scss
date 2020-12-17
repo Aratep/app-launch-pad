@@ -7,11 +7,22 @@
     height: 100%;
     width: 100%;
     background-color: whitesmoke;
+    overflow-y: auto;
+    padding-top: 1rem;
 
-     div {
-      height: 450px;
-      width: 300px;
-       background-color: #d5d5d5;
+    .device {
+      height: 500px;
+      width: 250px;
+      padding: 1rem;
+      max-width: 300px;
+      background-color: #d5d5d5;
+      cursor: pointer;
+
+      &__heading {
+        font-size: 1.1rem;
+        text-align: center;
+        font-weight: 1;
+      }
     }
   }
 }

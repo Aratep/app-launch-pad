@@ -1,11 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 
 //COMPONENTS
 import TextArea from "components/text-area/TextArea.component";
 //ACTIONS
 import { setToolbarParam } from "redux/toolbar/toolbra.actions";
-import { createStructuredSelector } from "reselect";
 
 const TextTools = (props) => {
    const { setToolbarParam, toolbar } = props;

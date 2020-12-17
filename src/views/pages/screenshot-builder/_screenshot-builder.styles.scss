@@ -3,6 +3,7 @@
 .screenshot-builder-page {
   display: flex;
   flex-direction: row;
+  overflow-y: hidden;
 
   .toolbar {
     width: 25%;
@@ -10,12 +11,8 @@
     background-color: #f8f9fa;
   }
 
-  .result-block {
-    width: 75%;
-    background-color: red;
-  }
-
   .toolbar, .result-block {
     padding: 1rem;
+    max-height: 100vh;
   }
 }
