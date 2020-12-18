@@ -5,23 +5,20 @@ import { createStructuredSelector } from "reselect";
 //COMPONENTS
 import TextArea from "components/text-area/TextArea.component";
 //ACTIONS
-import {
-   setToolbarParam,
-   updateSelectedScreen,
-} from "redux/toolbar/toolbra.actions";
+import { updateSelectedScreen } from "redux/toolbar/toolbra.actions";
 //UTILITIES
 import { isObjectEmpty } from "utilities/helperFunctions";
 
 const TextTools = (props) => {
-   const { setToolbarParam, toolbar, updateSelectedScreen } = props;
+   const { toolbar, updateSelectedScreen } = props;
    const { selectedScreen } = toolbar;
 
    const onChange = (e) => {
-      const { name, value } = e?.target;
-      setToolbarParam(name, value);
-      const uid = toolbar?.selectedScreen?.uid;
+      const { value } = e?.target;
+      const uid = selectedScreen?.uid;
+      const image = selectedScreen?.image;
 
-      updateSelectedScreen(uid, value);
+      updateSelectedScreen(uid, value, image);
    };
 
    return (
@@ -45,10 +42,8 @@ const structuredSelector = createStructuredSelector({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-   setToolbarParam: (property, value) =>
-      dispatch(setToolbarParam(property, value)),
-   updateSelectedScreen: (uid, text) =>
-      dispatch(updateSelectedScreen(uid, text)),
+   updateSelectedScreen: (uid, text, image) =>
+      dispatch(updateSelectedScreen(uid, text, image)),
 });
 
 export default connect(structuredSelector, mapDispatchToProps)(TextTools);

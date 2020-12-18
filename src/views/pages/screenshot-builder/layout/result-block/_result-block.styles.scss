@@ -10,8 +10,9 @@
     overflow-y: auto;
     padding-top: 1rem;
 
-    .device {
-      height: 500px;
+    .screen {
+      min-height: 500px;
+      height:fit-content;
       width: 250px;
       padding: 1rem;
       max-width: 300px;
@@ -23,6 +24,19 @@
         text-align: center;
         font-weight: 1;
       }
+      &__image-block {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+        &__img {
+          height: 200px;
+          max-width: 80%;
+        }
+      }
+    }
+    .selected-screen {
+      border: 2px dashed green;
     }
   }
 }

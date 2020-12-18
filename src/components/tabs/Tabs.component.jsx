@@ -1,7 +1,5 @@
 import React from "react";
 
-import "./tabs.styles.scss";
-
 export function ReTab(props) {
    const [selected, setSelected] = React.useState(props.selected || 0);
    const tabs = [],

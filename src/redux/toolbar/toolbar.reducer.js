@@ -25,9 +25,6 @@ const initialState = {
 
 export const toolbarReducer = (state = initialState, action) => {
    switch (action.type) {
-      case ToolbarTypes.SET_TOOLBAR_PARAM: {
-         return { ...state, [action.property]: action.value };
-      }
       case ToolbarTypes.SET_SELECTED_SCREEN: {
          return { ...state, selectedScreen: action.payload };
       }
@@ -36,6 +33,7 @@ export const toolbarReducer = (state = initialState, action) => {
             (item) => item.uid === action.uid
          );
          prop[0].text = action.text;
+         prop[0].image = action.image;
          return { ...state, devicesArray: state.devicesArray };
       }
       default:

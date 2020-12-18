@@ -1,8 +1,6 @@
 import React from "react";
 import classNames from "classnames";
 
-import "./_text-area.styles.scss";
-
 const TextArea = (props) => {
    const { textAreaClassName, resizeNone, domProps } = props;
 
