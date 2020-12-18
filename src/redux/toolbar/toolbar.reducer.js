@@ -7,17 +7,17 @@ const initialState = {
    devicesArray: [
       {
          uid: generateUID(),
-         text: "text1",
+         text: "Heading 1",
          image: "",
       },
       {
          uid: generateUID(),
-         text: "text2",
+         text: "Heading 2",
          image: "",
       },
       {
          uid: generateUID(),
-         text: "text3",
+         text: "Heading 3",
          image: "",
       },
    ],
@@ -30,6 +30,13 @@ export const toolbarReducer = (state = initialState, action) => {
       }
       case ToolbarTypes.SET_SELECTED_SCREEN: {
          return { ...state, selectedScreen: action.payload };
+      }
+      case ToolbarTypes.UPDATE_SELECTED_SCREEN: {
+         const prop = state.devicesArray.filter(
+            (item) => item.uid === action.uid
+         );
+         prop[0].text = action.text;
+         return { ...state, devicesArray: state.devicesArray };
       }
       default:
          return state;

@@ -9,18 +9,15 @@ const logger = createLogger({
    // collapsed: true,
 });
 
-// we need an initialState otherwise , store will freak out
-// const initialState = {
-//    posts: {},
-// };
-
 const sagaMiddleware = createSagaMiddleware();
 
+const middlewares = [sagaMiddleware];
+if (process.env.NODE_ENV === "development") {
+   middlewares.push(logger);
+}
+
 // redux sagas is a middleware that we apply to the store
-export const store = createStore(
-   rootReducer,
-   applyMiddleware(sagaMiddleware, logger)
-);
+export const store = createStore(rootReducer, applyMiddleware(...middlewares));
 sagaMiddleware.run(rootSaga);
 
 export default store;

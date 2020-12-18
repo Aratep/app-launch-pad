@@ -11,3 +11,8 @@ export function newlineText(text) {
 export function generateUID() {
    return Math.floor(100000 + Math.random() * 900000);
 }
+
+export function isObjectEmpty(obj) {
+   const keys = Object.keys(obj);
+   return !(keys.length > 0);
+}
